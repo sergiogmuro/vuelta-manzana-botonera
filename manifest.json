@@ -1,0 +1,22 @@
+{
+  "name": "Botonera - La vuelta manzana",
+  "short_name": "Botonera",
+  "start_url": "./",
+  "display": "fullscreen",
+  "background_color": "#ffffff",
+  "theme_color": "#FF5733",
+  "icons": [
+    {
+      "src": "1601243.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "1601243.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "scope": "/",
+  "orientation": "landscape"
+}

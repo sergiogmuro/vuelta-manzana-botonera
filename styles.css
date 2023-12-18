@@ -1,0 +1,232 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: #222; /* Negro mate de fondo */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.upper-section {
+    padding-left: 10px;
+    flex: inherit;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap; /* Hace que el contenido no se divida en múltiples líneas */
+}
+
+.scroll-container {
+    display: inline-block; /* Asegura que los elementos fluyan en línea */
+    white-space: normal; /* Restaura el comportamiento de división de líneas para los elementos internos */
+}
+
+#scroll-container-upper {
+    display: inline-flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: max-content;
+}
+
+.lower-section {
+    flex: 2;
+    overflow-y: auto;
+}
+
+.scroll-container {
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    place-content: flex-start;
+}
+
+#lower-section {
+    flex: 2;
+    overflow-y: auto;
+}
+
+#scroll-container-lower {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h2,
+h2 {
+    position: sticky;
+    top: 0;
+    margin: 0;
+    z-index: 1;
+    padding: 10px;
+    color: white;
+}
+
+button {
+    width: calc(16% - 20px); /* Ancho para 2 botones por fila con espacio */
+    /*max-width: 175px;*/
+    height: 120px;
+    margin: 10px;
+    cursor: pointer;
+    position: relative;
+    text-wrap: wrap;
+    font-size: 1.4em;
+    border: 3px solid orangered;
+    box-shadow: 0 0 10px orangered;
+    background-color: #000;
+    color: #fff;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease
+}
+
+button:disabled {
+    border: 3px solid grey;
+    box-shadow: none;
+}
+.playing {
+    border-color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.played {
+    border-color: #ccc;
+    box-shadow: none;
+}
+
+.display {
+    font-family: monospace;
+    font-weight: bold;
+    color: #cdf7f6;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+    max-width: 200px;
+    height: 80%;
+    background: midnightblue;
+    text-align: center;
+    font-size: 1.6em;
+    margin: 8px 10px;
+    overflow-wrap: anywhere;
+    border: 1px solid black;
+}
+
+.display #name {
+    font-size: .9em;
+    padding-top: 20px;
+}
+
+.container2 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: #111;
+    padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .scroll-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    h2,
+    h2 {
+        font-size: 18px;
+        padding: 8px;
+        margin: 0;
+    }
+
+    button {
+        width: 48%;
+        max-width: 150px;
+        height: 80px;
+        margin: 5px;
+    }
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.play-icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFF;
+    font-size: 24px;
+}
+
+#progress-container {
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+}
+
+#progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #4caf50;
+}
+
+
+@media screen and (max-width: 1180px) {
+
+    h2 {
+        font-size: 0.8em; /* Reducir el tamaño del título */
+        padding: 5px; /* Reducir el espacio alrededor del título */
+    }
+
+    button {
+        width: calc(17% - 20px);
+        max-width: calc(180px - 20px); /* Ancho máximo de cada botón */
+        height: 60px;
+        margin: 5px;
+        font-size: 0.8em; /* Tamaño de fuente reducido */
+    }
+    .lower-section button {
+        height: 100px;
+        margin: 8px;
+    }
+
+    .scroll-container {
+        display: flex;
+        flex-wrap: wrap;
+        /*justify-content: space-between;*/
+    }
+
+    .display {
+        width: 200px !important;
+        max-width: 200px;
+        font-size: 1.4em;
+        padding: 8px;
+        display: block;
+        height: 60px;
+        overflow: hidden;
+    }
+    #progress-container {
+        height: 1px;
+    }
+
+    .display #name {
+        font-size: .9em;
+        padding-top: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Agregar puntos suspensivos si el texto es demasiado largo */
+        white-space: nowrap; /* Evitar que el texto se divida en múltiples líneas */
+        max-width: 100%; /* Asegurar que se ajuste dentro del contenedor */
+    }
+
+    .display #time {
+        font-size: 0.9em;
+    }
+}
